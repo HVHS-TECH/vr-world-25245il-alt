@@ -16,38 +16,24 @@
          height="100" 
          color="#012909">
     </a-plane>  
-    <a-entity 
-  ply-model="src:Owl.ply"
-  rotation="-90 270 90"
-  circle-motion="radius: 7; speed: 1"
-></a-entity>
+       <!-- Put this inside the <a-scene> -->
       <a-entity 
       ply-model="src:Big Tree.ply"
       position="5 -8 -22"
       rotation="-90 270 90"
       ></a-entity>
-      <script>
-AFRAME.registerComponent('circle-motion', {
-  schema: {
-    radius: {type: 'number', default: 5},
-    speed: {type: 'number', default: 1}
-  },
-  tick: function (time, timeDelta) {
-    const angle = (time / 1000) * this.data.speed;
-    const x = Math.cos(angle) * this.data.radius;
-    const z = Math.sin(angle) * this.data.radius - 10; // keep it in front
-    this.el.setAttribute('position', {x: x, y: 0, z: z});
-  }
-});
-</script>
-    <a-box position="5 0 0" color="red"
-  animation="property: rotation;
-             to: 0 360 0;
-             dur: 5000;
-             easing: linear;
-             loop: true">
-</a-box>
-        
+      <a-entity 
+      ply-model="src:Owl.ply"
+      position="0 0 -10"
+      rotation="-90 270 90"
+    animation="
+      property:position;
+      from:0 0 -10;
+      to:-7 0 -10;
+      dur:2000;
+      loop:true;
+      dir:alternate;"
+    ></a-entity>
     </a-scene>
   </body>
 </html>
