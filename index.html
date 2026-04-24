@@ -35,7 +35,16 @@
       dur:2000;
       loop:true;
       dir:alternate;"
-    ></a-entity>           
+    ></a-entity>
+    AFRAME.registerComponent('circular-motion', {
+  schema: { radius: {type: 'number', default: 5}, speed: {type: 'number', default: 1} },
+  tick: function (time, deltaTime) {
+    const angle = time / 1000 * this.data.speed;
+    const x = Math.cos(angle) * this.data.radius;
+    const z = Math.sin(angle) * this.data.radius;
+    this.el.setAttribute('position', {x: x, y: 0, z: z});
+  }
+});           
     </a-scene>
   </body>
 </html>
