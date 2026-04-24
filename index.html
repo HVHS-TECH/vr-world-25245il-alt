@@ -36,15 +36,17 @@
       loop:true;
       dir:alternate;"
     ></a-entity>
-    AFRAME.registerComponent('circular-motion', {
-  schema: { radius: {type: 'number', default: 5}, speed: {type: 'number', default: 1} },
-  tick: function (time, deltaTime) {
-    const angle = time / 1000 * this.data.speed;
-    const x = Math.cos(angle) * this.data.radius;
-    const z = Math.sin(angle) * this.data.radius;
-    this.el.setAttribute('position', {x: x, y: 0, z: z});
-  }
-});           
+    <script src="https://aframe.io"></script>
+  </head>
+  <body>
+    
+        <a-sphere position="5 1.5 -5" radius="0.5" color="#EF2D5E"></a-sphere>
+        
+      
+
+      <!-- Background and Camera -->
+      <a-sky color="#ECECEC"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
     </a-scene>
   </body>
 </html>
